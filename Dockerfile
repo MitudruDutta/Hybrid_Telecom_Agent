@@ -17,5 +17,5 @@ COPY . .
 # Expose port
 EXPOSE 8080
 
-# Run the agent (init happens at runtime with env vars available)
-CMD ["python", "-m", "bedrock_agentcore.runtime", "src/agentcore_runtime.py"]
+# Run the agent using the correct command
+CMD ["python", "src/agentcore_runtime.py"]
