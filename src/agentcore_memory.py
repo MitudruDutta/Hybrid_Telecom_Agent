@@ -26,7 +26,7 @@ app = BedrockAgentCoreApp()
 settings = get_settings()
 
 # Memory Configuration
-MEMORY_ID = "cc_memory-XioOkX8XXH"
+MEMORY_ID = "cc_memory-7VM1d2D7Kl"
 REGION = settings.aws_region
 
 # Initialize memory components
