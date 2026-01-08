@@ -1,14 +1,18 @@
 """AgentCore Runtime - Basic deployment."""
 import os
+import sys
 from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+os.chdir(Path(__file__).parent.parent)
+
+from dotenv import load_dotenv
+load_dotenv()
+
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 from langchain_groq import ChatGroq
 from langchain.agents import create_agent
-from dotenv import load_dotenv
-
-# Ensure we're in the right directory for data files
-os.chdir(Path(__file__).parent.parent)
-load_dotenv()
 
 from src.tools import TOOLS
 from src.config import get_settings
@@ -42,7 +46,7 @@ online_security, online_backup, device_protection, tech_support,
 streaming_tv, streaming_movies, contract(Month-to-month/One year/Two year),
 paperless_billing, payment_method, monthly_charges, total_charges, churn(Yes/No)
 
-Be concise and accurate. Synthesize tool results into clear answers."""
+Be concise and accurate."""
 
 model = ChatGroq(
     model=settings.llm_model,
@@ -58,7 +62,6 @@ agent = create_agent(
 
 @app.entrypoint
 def handler(payload: dict, context: dict) -> dict:
-    """Handler for agent invocation."""
     query = payload.get("prompt", "")
     if not query:
         return {"error": "No prompt provided", "result": ""}

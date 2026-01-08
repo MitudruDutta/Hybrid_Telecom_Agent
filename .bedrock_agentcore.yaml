@@ -28,13 +28,13 @@ agents:
         idle_runtime_session_timeout: null
         max_lifetime: null
     bedrock_agentcore:
-      agent_id: null
-      agent_arn: null
-      agent_session_id: null
+      agent_id: telecom_agent-2umTPeF8tS
+      agent_arn: arn:aws:bedrock-agentcore:ap-south-1:133954051176:runtime/telecom_agent-2umTPeF8tS
+      agent_session_id: 722a6548-b65b-435f-b511-5bbcb10a339f
     codebuild:
-      project_name: null
-      execution_role: null
-      source_bucket: null
+      project_name: bedrock-agentcore-telecom_agent-builder
+      execution_role: arn:aws:iam::133954051176:role/AmazonBedrockAgentCoreSDKCodeBuild-ap-south-1-7db1a0f14d
+      source_bucket: bedrock-agentcore-codebuild-sources-133954051176-ap-south-1
     memory:
       mode: NO_MEMORY
       memory_id: null
