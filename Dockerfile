@@ -14,11 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Initialize data stores
-RUN python main.py init
-
 # Expose port
 EXPOSE 8080
 
-# Run the agent
+# Run the agent (init happens at runtime with env vars available)
 CMD ["python", "-m", "bedrock_agentcore.runtime", "src/agentcore_runtime.py"]

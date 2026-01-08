@@ -12,9 +12,16 @@ load_dotenv()
 
 from src.tools import TOOLS
 from src.config import get_settings
+from src.data_loader import init_sqlite_db, build_vector_store, DB_PATH, DATA_DIR
 
 app = BedrockAgentCoreApp()
 settings = get_settings()
+
+# Initialize data on startup
+if not DB_PATH.exists():
+    init_sqlite_db()
+if not (DATA_DIR / "faiss_index").exists():
+    build_vector_store()
 
 SYSTEM_PROMPT = """You are a telecom customer service agent with hybrid retrieval.
 

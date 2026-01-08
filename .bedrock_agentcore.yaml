@@ -9,11 +9,11 @@ agents:
     container_runtime: docker
     source_path: /home/btwitsvoid/Documents/ML Project/agentcore
     aws:
-      execution_role: null
-      execution_role_auto_create: true
+      execution_role: arn:aws:iam::133954051176:role/AmazonBedrockAgentCoreSDKRuntime-ap-south-1-7db1a0f14d
+      execution_role_auto_create: false
       account: '133954051176'
       region: ap-south-1
-      ecr_repository: null
+      ecr_repository: 133954051176.dkr.ecr.ap-south-1.amazonaws.com/telecom_agent
       ecr_auto_create: false
       s3_path: null
       s3_auto_create: false
